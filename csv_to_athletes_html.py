@@ -49,11 +49,12 @@ def gen_athlete_page(data, outfile):
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
        <!-- Get your own FontAwesome ID -->
-       <script src="https://kit.fontawesome.com/YOUR_ID.js" crossorigin="anonymous"></script>
+       <script src="https://kit.fontawesome.com/ecb3a66f9b.js" crossorigin="anonymous"></script>
 
+      
 
-      <link rel = "stylesheet" href = "css/reset.css">
-      <link rel = "stylesheet" href = "css/style.css">
+     
+      <link rel = "stylesheet" href = "../css/style.css">
       
 
       <title>{data["name"]}</title>
@@ -70,8 +71,9 @@ def gen_athlete_page(data, outfile):
    <header>
       <!--Athlete would input headshot-->
        <h1>{data["name"]}</h1>
-      <img src="../images/profiles/{data["athlete_id"]}.jpg" alt="Athlete headshot" width="200"> 
+      
    </header>
+   <img src="../images/profiles/{data["athlete_id"]}.jpg" alt="Athlete headshot" class="athlete-img"> 
    <main id = "main">
       <section id= "athlete-sr-table">
          <h2>Athlete's Seasonal Records (SR) per Year</h2>
@@ -107,10 +109,10 @@ def gen_athlete_page(data, outfile):
                            <table id="athlete-table">
                               <thead>
                                  <tr>
-                                    <th>Race</th>
-                                    <th>Athlete Time</th>
-                                    <th>Athlete Place</th>
-                                    <th>Race Comments</th>
+                                    <th><i class = "fa fa-person-running" aria-hidden="true"></i>Race</th>
+                                    <th><i class="fa fa-clock" aria-hidden="true"></i>Athlete Time</th>
+                                    <th><i class = "fa fa-medal" aria-hidden="true"></i>Athlete Place</th>
+                                    <th><i class = "fa fa-message" aria-hidden="true"></i>Race Comments</th>
                                  </tr>
                               </thead>
 
