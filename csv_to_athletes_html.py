@@ -1,4 +1,5 @@
 import csv
+import re
 
 def process_athlete_data(file_path):
 
@@ -40,9 +41,20 @@ def process_athlete_data(file_path):
       "comments": comments
    }    
 
+# def parse_time(time_str):
+#    # remove non-numeric chars
+#    if not time_str:
+#       return 0
+#    clean_time_str = re.sub(r"[^\d:.]", "", time_str)
+#    parts = clean_time_str.split(':')
+#    #if len(parts) == 2:
+#    return int(parts[0]) * 60 + float(parts[1])
+#    #return float(parts[0])
+
 def gen_athlete_page(data, outfile):
    # template 
    # Start building the HTML structure
+   # best_time = min(parse_time(race["time"]) for race in data["race_results"] if race["time"])
    html_content = f'''<!DOCTYPE html>
    <html lang="en">
    <head>
@@ -50,9 +62,6 @@ def gen_athlete_page(data, outfile):
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
        <!-- Get your own FontAwesome ID -->
        <script src="https://kit.fontawesome.com/ecb3a66f9b.js" crossorigin="anonymous"></script>
-
-      
-
      
       <link rel = "stylesheet" href = "../css/style.css">
       
@@ -66,6 +75,12 @@ def gen_athlete_page(data, outfile):
         <li><a href="index.html">Home Page</a></li>
         <li><a href="mens.html">Men's Team</a></li>
         <li><a href="womens.html">Women's Team</a></li>
+        <li><a href="#athlete-sr-table">Seasonal Records</a></li>
+        <li><a href="#athlete-result-table">Race Results</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><button onclick="setTheme('normal')">Normal Mode</button></li>
+        <li><button onclick="setTheme('dark')">Dark Mode</button></li>
+        <li><button onclick="setTheme('high-contrast')">High Contrast</button></li>
      </ul>
    </nav>
    <header>
@@ -73,7 +88,8 @@ def gen_athlete_page(data, outfile):
        <h1>{data["name"]}</h1>
       
    </header>
-   <img src="../images/profiles/{data["athlete_id"]}.jpg" alt="Athlete headshot" class="athlete-img"> 
+      <img src="../images/profiles/{data["athlete_id"]}.jpg" alt="Athlete headshot" class="athlete-img"> 
+
    <main id = "main">
       <section id= "athlete-sr-table">
          <h2>Athlete's Seasonal Records (SR) per Year</h2>
@@ -118,9 +134,11 @@ def gen_athlete_page(data, outfile):
 
                               <tbody>
                   '''
-
+   
    # add each race as a row into the race table 
    for race in data["race_results"]:
+      #race_time = parse_time(race["time"])
+      #progress_width = (best_time / race_time) * 100 if race_time> 0 else 0
       race_row = f'''
                                  <tr class="result-row">
                                     <td>
@@ -128,7 +146,10 @@ def gen_athlete_page(data, outfile):
                                     </td>
                                     <td>{race["time"]}</td>
                                     <td>{race["finish"]}</td>
-                                     <td>{race["comments"]}</td>
+                                    <td>
+                                       <button class="collapse-btn" onclick="toggleComments(this)">Show Comments</button>
+                                       <div class="comment-content">{race["comments"]}</div>
+                                    </td>
                                  </tr>
       '''
       html_content += race_row
@@ -150,11 +171,35 @@ def gen_athlete_page(data, outfile):
                      Ann Arbor, MI 48103<br><br>
 
                      <a href = "https://sites.google.com/aaps.k12.mi.us/skylinecrosscountry2021/home">XC Skyline Page</a><br>
-                    Follow us on Instagram <a href = "https://www.instagram.com/a2skylinexc/"><i class="fa-brands fa-instagram" aria-label="Instagram"></i>  </a> 
-
+                    <!--  Follow us on Instagram <a href = "https://www.instagram.com/a2skylinexc/"><i class="fa-brands fa-instagram" aria-label="Instagram"></i>  </a> -->
 
                      </footer>
                </body>
+            
+            <script>
+               function toggleComments(button) {
+                  const commentSection = button.nextElementSibling;
+                  if (commentSection.style.display === "none" || commentSection.style.display === "") {
+                     commentSection.style.display = "block";
+                    button.textContent = "Hide Comments";
+                  } else {
+                     commentSection.style.display = "none";
+                     button.textContent = "Show Comments";
+                  }
+               }
+
+               function setTheme(mode) {
+                  // Remove any existing theme classes
+                  document.body.classList.remove('dark-mode', 'high-contrast-mode');
+
+                  // Apply the chosen theme
+                  if (mode === 'dark') {
+                     document.body.classList.add('dark-mode');
+                  } else if (mode === 'high-contrast') {
+                     document.body.classList.add('high-contrast-mode');
+                  }
+               }
+            </script>
          </html>
    '''
 

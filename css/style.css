@@ -1,18 +1,37 @@
 
 :root {
-    --primary-color: #9d1a7f;
-    --secondary-color: #9b4192;
+    --primary-color: #c51f9e;
+    --secondary-color: #7c2073;
     --tertiary-color: #f1b9e9;
+    --fourth-color: #f1eff5;
     --bg-color: #fff;
     --text-color: #000;
+    --text-color2: white;
+    --link-color: rgb(135, 39, 90); 
 }
 
-@media (prefers-color-scheme: dark) {
-    :root {
-        --bg-color: #121212;
-        --text-color: #e0e0e0;
-        --primary-color: #bb86fc;
-    }
+/* dark mode */
+body.dark-mode {
+    --bg-color: black;
+    --text-color: white;
+    --text-color3: black;
+    --link-color: rgb(250, 210, 234); 
+    --primary-color: #84196b;
+    --secondary-color: #9d1a7f;
+    --tertiary-color: #9d1a7f;
+    --fourth-color: #1a399d;
+}
+
+/* high-contrast mode */
+body.high-contrast-mode {
+    --bg-color: black;
+    --text-color: white;
+    --text-color3: black;
+    --primary-color: rgb(180, 12, 12);
+    --secondary-color: blue;
+    --tertiary-color: rgb(30, 2, 119);
+    --fourth-color: rgb(180, 12, 12);
+    --link-color: yellow;
 }
 
 /* sticky header */
@@ -23,7 +42,7 @@ header {
     background-color: var(--primary-color);
     z-index: 100;
     padding: 10px;
-    color: white;
+    color: var(--text-color2);
     text-align: center;
     margin: 0;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
@@ -78,11 +97,11 @@ table {
     display: block; 
 }
 
-thead th {
+thead tr th{
     position: sticky;
     top: 0;
     background-color: var(--primary-color);
-    color: white;
+    color: var(--text-color2);
     z-index: 1;
     padding: 10px;
     text-align: left;
@@ -96,7 +115,7 @@ table th, table td {
 }
 
 tbody tr:nth-child(even) {
-    background-color: #f1eff5;
+    background-color: var(--fourth-color);
 }
 
 tbody tr:nth-child(odd) {
@@ -105,7 +124,7 @@ tbody tr:nth-child(odd) {
 
 table th {
     background-color: var(--primary-color);
-    color: var(--bg-color);
+    color: var(--text-color);
 }
 
 th i {
@@ -133,7 +152,7 @@ th i {
         margin-bottom: 15px;
         border: 1px solid #ddd;
         padding: 10px;
-        background-color: #fff;
+        background-color: var(--bg-color);
     }
 
     /* each table cell as a block with label */
@@ -166,13 +185,21 @@ nav ul li {
     margin-right: 20px;
 }
 
-nav ul li a {
-    text-decoration: none;
-    color: var(--primary-color);
+nav ul li a:hover, nav ul li button:hover{
+    background-color: var(--secondary-color);
+    color: var(--bg-color);
+    border-radius: 5px;
 }
 
-nav ul li a:hover {
-    text-decoration: underline;
+nav ul li a, nav ul li button {
+    text-decoration: none;
+    color: var(--text-color);
+    padding: 8px 12px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: color 0.3s ease, background-color 0.3s ease;
 }
 
 /* floating action button */
@@ -201,17 +228,11 @@ nav ul li a:hover {
 }
 
 /* priority data on mobile */
-@media (max-width: 600px) {
-    /* table th:nth-child(3), table td:nth-child(3),
-    table th:nth-child(4), table td:nth-child(4) {
-        display: none;
-    } */
-}
 
 /* collapsible section */
 .collapsible {
     background-color: var(--primary-color);
-    color: white;
+    color: var(--text-color3);
     cursor: pointer;
     padding: 10px;
     width: 100%;
@@ -226,10 +247,14 @@ nav ul li a:hover {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.2s ease-out;
+    background-color: var(--bg-color);
+    color: var(--text-color);
 }
 
 .content.show {
     max-height: 300px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
 }
 
 /* progress bar */
@@ -255,11 +280,11 @@ footer {
     text-align: center;
     padding: 20px;
     background-color: var(--secondary-color);
-    color: white;
+    color: var(--text-color2);
 }
 
 footer a {
-    color: var(--primary-color);
+    color: var(--text-color2);
 }
 
 footer a:hover {
@@ -269,14 +294,86 @@ footer a:hover {
 /* gallery section */
 #gallery {
     padding: 20px;
-    background-color: #f4f4f4;
+    background-color: var(--fourth-color);
+    color: var(--text-color);
 }
 
 /* animation */
 a {
+    color: var(--link-color);
     transition: color 0.3s ease;
 }
 
 a:hover {
-    color: var(--secondary-color);
+    color: var(--text-color2);
 }
+
+/* animations */
+html {
+    scroll-behavior: smooth;
+}
+
+.collapse-btn {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin: 5px 0;
+    text-decoration: underline;
+}
+
+.comment-content {
+    display: none;
+    padding: 10px;
+    margin-top: 5px;
+    background-color: #f9f9f9;
+    border-top: 1px solid #ddd;
+    font-size: 0.9rem;
+}
+
+
+/* progress bar container */
+.progress-bar-container {
+    width: 100%;
+    background-color: var(--primary-color);
+    border-radius: 8px;
+    overflow: hidden;
+    height: 20px;
+    margin: 5px 0;
+}
+
+/* progress bar fill */
+.progress-bar {
+    height: 100%;
+    background-color: var(--secondary-color);
+    width: 0;
+    animation: fillBar 1.5s ease forwards;
+    border-radius: 8px;
+}
+
+/* progress bar animation */
+@keyframes fillBar {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+/* buttons */
+button {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    border: 1px solid var(--secondary-color);
+    cursor: pointer;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: var(--secondary-color);
+}
+

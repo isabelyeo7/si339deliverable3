@@ -5,9 +5,6 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
        <!-- Get your own FontAwesome ID -->
        <script src="https://kit.fontawesome.com/ecb3a66f9b.js" crossorigin="anonymous"></script>
-
-      
-
      
       <link rel = "stylesheet" href = "../css/style.css">
       
@@ -21,6 +18,12 @@
         <li><a href="index.html">Home Page</a></li>
         <li><a href="mens.html">Men's Team</a></li>
         <li><a href="womens.html">Women's Team</a></li>
+        <li><a href="#athlete-sr-table">Seasonal Records</a></li>
+        <li><a href="#athlete-result-table">Race Results</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><button onclick="setTheme('normal')">Normal Mode</button></li>
+        <li><button onclick="setTheme('dark')">Dark Mode</button></li>
+        <li><button onclick="setTheme('high-contrast')">High Contrast</button></li>
      </ul>
    </nav>
    <header>
@@ -28,7 +31,8 @@
        <h1>Lily Greenberg</h1>
       
    </header>
-   <img src="../images/profiles/23687875.jpg" alt="Athlete headshot" class="athlete-img"> 
+      <img src="../images/profiles/23687875.jpg" alt="Athlete headshot" class="athlete-img"> 
+
    <main id = "main">
       <section id= "athlete-sr-table">
          <h2>Athlete's Seasonal Records (SR) per Year</h2>
@@ -78,7 +82,10 @@
                                     </td>
                                     <td>28:39.7</td>
                                     <td>70 </td>
-                                     <td>You really pushed hard in that final mile, awesome finish!</td>
+                                    <td>
+                                       <button class="collapse-btn" onclick="toggleComments(this)">Show Comments</button>
+                                       <div class="comment-content">You really pushed hard in that final mile, awesome finish!</div>
+                                    </td>
                                  </tr>
       
                                  <tr class="result-row">
@@ -87,7 +94,10 @@
                                     </td>
                                     <td>27:32.8 SR</td>
                                     <td>105 </td>
-                                     <td></td>
+                                    <td>
+                                       <button class="collapse-btn" onclick="toggleComments(this)">Show Comments</button>
+                                       <div class="comment-content"></div>
+                                    </td>
                                  </tr>
       
                                  <tr class="result-row">
@@ -96,7 +106,10 @@
                                     </td>
                                     <td>29:57.2</td>
                                     <td>98 </td>
-                                     <td>I think you might've outrun the course map! Keep it up, and we’ll need GPS tracking.</td>
+                                    <td>
+                                       <button class="collapse-btn" onclick="toggleComments(this)">Show Comments</button>
+                                       <div class="comment-content">I think you might've outrun the course map! Keep it up, and we’ll need GPS tracking.</div>
+                                    </td>
                                  </tr>
       
                                  <tr class="result-row">
@@ -105,7 +118,10 @@
                                     </td>
                                     <td>27:32.6</td>
                                     <td>33 </td>
-                                     <td></td>
+                                    <td>
+                                       <button class="collapse-btn" onclick="toggleComments(this)">Show Comments</button>
+                                       <div class="comment-content"></div>
+                                    </td>
                                  </tr>
       
                                  <tr class="result-row">
@@ -114,7 +130,10 @@
                                     </td>
                                     <td>26:44.9</td>
                                     <td>263 </td>
-                                     <td></td>
+                                    <td>
+                                       <button class="collapse-btn" onclick="toggleComments(this)">Show Comments</button>
+                                       <div class="comment-content"></div>
+                                    </td>
                                  </tr>
       
                                  <tr class="result-row">
@@ -123,7 +142,10 @@
                                     </td>
                                     <td>28:03.5</td>
                                     <td>99 </td>
-                                     <td>Nice job! You really finished strong.</td>
+                                    <td>
+                                       <button class="collapse-btn" onclick="toggleComments(this)">Show Comments</button>
+                                       <div class="comment-content">Nice job! You really finished strong.</div>
+                                    </td>
                                  </tr>
       
                                  <tr class="result-row">
@@ -132,7 +154,10 @@
                                     </td>
                                     <td>27:58.8</td>
                                     <td>108 </td>
-                                     <td></td>
+                                    <td>
+                                       <button class="collapse-btn" onclick="toggleComments(this)">Show Comments</button>
+                                       <div class="comment-content"></div>
+                                    </td>
                                  </tr>
       
                                  <tr class="result-row">
@@ -141,7 +166,10 @@
                                     </td>
                                     <td>25:57.6PR</td>
                                     <td>58 </td>
-                                     <td>Solid performance today! We'll fine-tune things in practice.</td>
+                                    <td>
+                                       <button class="collapse-btn" onclick="toggleComments(this)">Show Comments</button>
+                                       <div class="comment-content">Solid performance today! We'll fine-tune things in practice.</div>
+                                    </td>
                                  </tr>
       
                               </tbody>
@@ -160,10 +188,34 @@
                      Ann Arbor, MI 48103<br><br>
 
                      <a href = "https://sites.google.com/aaps.k12.mi.us/skylinecrosscountry2021/home">XC Skyline Page</a><br>
-                    Follow us on Instagram <a href = "https://www.instagram.com/a2skylinexc/"><i class="fa-brands fa-instagram" aria-label="Instagram"></i>  </a> 
-
+                    <!--  Follow us on Instagram <a href = "https://www.instagram.com/a2skylinexc/"><i class="fa-brands fa-instagram" aria-label="Instagram"></i>  </a> -->
 
                      </footer>
                </body>
+            
+            <script>
+               function toggleComments(button) {
+                  const commentSection = button.nextElementSibling;
+                  if (commentSection.style.display === "none" || commentSection.style.display === "") {
+                     commentSection.style.display = "block";
+                    button.textContent = "Hide Comments";
+                  } else {
+                     commentSection.style.display = "none";
+                     button.textContent = "Show Comments";
+                  }
+               }
+
+               function setTheme(mode) {
+                  // Remove any existing theme classes
+                  document.body.classList.remove('dark-mode', 'high-contrast-mode');
+
+                  // Apply the chosen theme
+                  if (mode === 'dark') {
+                     document.body.classList.add('dark-mode');
+                  } else if (mode === 'high-contrast') {
+                     document.body.classList.add('high-contrast-mode');
+                  }
+               }
+            </script>
          </html>
    
