@@ -387,7 +387,7 @@ a {
 }
 
 a:hover {
-    color: var(--text-color2);
+    color: var(--primary-color);
     text-shadow: 1px 1px 5px var(--link-color);
 }
 
