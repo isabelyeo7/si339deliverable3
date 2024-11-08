@@ -86,34 +86,6 @@ a.skip-link:focus {
     object-fit: cover;
 }
 
-/* table styles */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
-    font-size: 0.9em;
-    background-color: var(--bg-color);
-    overflow-x: auto;
-    display: block; 
-}
-
-thead tr th{
-    position: sticky;
-    top: 0;
-    background-color: var(--primary-color);
-    color: var(--text-color2);
-    z-index: 1;
-    padding: 10px;
-    text-align: left;
-    border: 1px solid #ddd;
-}
-
-table th, table td {
-    padding: 10px;
-    border: 1px solid #ddd;
-    text-align: left;
-}
-
 tbody tr:nth-child(even) {
     background-color: var(--fourth-color);
 }
@@ -124,7 +96,7 @@ tbody tr:nth-child(odd) {
 
 table th {
     background-color: var(--primary-color);
-    color: var(--text-color);
+    color: var(--text-color2);
 }
 
 th i {
@@ -133,46 +105,119 @@ th i {
 }
 
 /* responsive table for mobile */
-@media (max-width: 600px) {
-    table, thead, tbody, th, td, tr {
-        display: block;
-    }
+table, thead, tbody, th, td, tr {
+    display: block;
+}
 
-    table th, table td {
-        font-size: clamp(0.8rem, 1vw + 0.4rem, 1rem);
-    }
+thead {
+    color: var(--text-color2);
+}
 
-    /* hide table headers */
-    /* thead {
-        display: none;
-    } */
+table th, table td {
+    font-size: clamp(0.8rem, 1vw + 0.4rem, 1rem);
+}
+/* card-like row display */
+tbody tr {
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    background-color: var(--bg-color);
+}
 
-    /* card-like row display */
-    tbody tr {
-        margin-bottom: 15px;
-        border: 1px solid #ddd;
-        padding: 10px;
+/* each table cell as a block with label */
+tbody td {
+    display: block;
+    text-align: right;
+    padding-left: 50%;
+    position: relative;
+}
+
+table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    width: 50%;
+    padding-left: 10px;
+    text-align: left;
+    font-weight: bold;
+}
+
+/* table styles for bigger width*/
+@media (min-width: 600px){
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        font-size: 0.9em;
         background-color: var(--bg-color);
+        overflow-x: auto;
+        display: table; 
+    }
+    thead {
+        display: table-header-group;
+        color: var(--text-color2);
     }
 
-    /* each table cell as a block with label */
-    tbody td {
-        display: block;
-        text-align: right;
-        padding-left: 50%;
-        position: relative;
+    tbody {
+        display: table-row-group;
+    }
+    
+    tr {
+        display: table-row;
+        margin-bottom: 0;
+        border: none;
+        padding: 0;
     }
 
-    table td::before {
-        content: attr(data-label);
-        position: absolute;
-        left: 0;
-        width: 50%;
-        padding-left: 10px;
+
+    thead tr th{
+        position: sticky;
+        top: 0;
+        background-color: var(--primary-color);
+        color: var(--text-color2);
+        z-index: 1;
+        padding: 10px;
         text-align: left;
-        font-weight: bold;
+        border: 1px solid #ddd;
+    }
+    
+    table th, table td {
+        padding: 10px;
+        border: 1px solid #ddd;
+        text-align: left;
+        display: table-cell;
+    }
+    table td::before {
+        content: none;
+    }
+
+    .nav-toggle {
+        display: none;
+    }
+
+    .nav-menu {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        background-color: transparent;
+    }
+
+    .nav-menu li {
+        border-bottom: none;
+    }
+
+    .nav-menu a, .nav-menu button {
+        padding: 10px 20px;
+        color: var(--text-color);
+        background: none;
+    }
+
+    nav ul {
+        display: flex;
+        gap: 20px;
     }
 }
+
 
 /* nav styles */
 nav ul {
@@ -193,7 +238,7 @@ nav ul li a:hover, nav ul li button:hover{
 
 nav ul li a, nav ul li button {
     text-decoration: none;
-    color: var(--text-color);
+    color: var(--text-color2);
     padding: 8px 12px;
     border: none;
     background: none;
@@ -201,6 +246,45 @@ nav ul li a, nav ul li button {
     font-size: 1rem;
     transition: color 0.3s ease, background-color 0.3s ease;
 }
+
+/* dropdown navigation menu */
+.nav-toggle {
+    display: block;
+    background-color: var(--primary-color);
+    color: var(--text-color2);
+    border: none;
+    padding: 10px;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.nav-menu {
+    display: none;
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+    background-color: var(--secondary-color);
+    color: var(--text-color2);
+}
+
+.nav-menu li {
+    border-bottom: 1px solid var(--primary-color);
+}
+
+.nav-menu a, .nav-menu button {
+    display: block;
+    padding: 10px;
+    color: var(--text-color2);
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Show the menu in expanded mode when the button is clicked */
+.nav-menu.active {
+    display: flex;
+    animation: fadeIn 0.5s ease;
+}
+
 
 /* floating action button */
 .fab {
@@ -226,8 +310,6 @@ nav ul li a, nav ul li button {
 .fab i {
     font-size: 24px;
 }
-
-/* priority data on mobile */
 
 /* collapsible section */
 .collapsible {
@@ -301,11 +383,12 @@ footer a:hover {
 /* animation */
 a {
     color: var(--link-color);
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
 a:hover {
     color: var(--text-color2);
+    text-shadow: 1px 1px 5px var(--link-color);
 }
 
 /* animations */
@@ -327,9 +410,17 @@ html {
     display: none;
     padding: 10px;
     margin-top: 5px;
-    background-color: #f9f9f9;
+    background-color: var(--fourth-color);
+    color: var(--text-color);
     border-top: 1px solid #ddd;
     font-size: 0.9rem;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+.comment-content.show {
+    display: block;
+    max-height: 300px;
+    opacity: 1;
 }
 
 
@@ -362,6 +453,13 @@ html {
     }
 }
 
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    } to {
+        opacity: 1;
+    }
+}
 /* buttons */
 button {
     background-color: var(--primary-color);
@@ -371,9 +469,43 @@ button {
     padding: 10px;
     margin: 5px;
     border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 button:hover {
     background-color: var(--secondary-color);
+    transform: scale(1.05);
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        --bg-color: black;
+        --text-color: white;
+        --text-color3: black;
+        --link-color: rgb(250, 210, 234); 
+        --primary-color: #84196b;
+        --secondary-color: #9d1a7f;
+        --tertiary-color: #9d1a7f;
+        --fourth-color: #1a399d;
+    }
+}
+
+@media (prefers-contrast: more) {
+    body {
+        --bg-color: black;
+        --text-color: white;
+        --text-color3: black;
+        --primary-color: rgb(180, 12, 12);
+        --secondary-color: blue;
+        --tertiary-color: rgb(30, 2, 119);
+        --fourth-color: rgb(180, 12, 12);
+        --link-color: yellow;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
 }
 

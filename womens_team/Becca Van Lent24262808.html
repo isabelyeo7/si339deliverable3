@@ -14,17 +14,18 @@
    <body>
    <a href = "#main">Skip to Main Content</a>
    <nav>
-     <ul>
-        <li><a href="../index.html">Home Page</a></li>
-        <li><a href="../mens.html">Men's Team</a></li>
-        <li><a href="../womens.html">Women's Team</a></li>
-        <li><a href="#athlete-sr-table">Seasonal Records</a></li>
-        <li><a href="#athlete-result-table">Race Results</a></li>
-        <li><a href="#gallery">Gallery</a></li>
-        <li><button onclick="setTheme('normal')">Normal Mode</button></li>
-        <li><button onclick="setTheme('dark')">Dark Mode</button></li>
-        <li><button onclick="setTheme('high-contrast')">High Contrast</button></li>
-     </ul>
+      <button class="nav-toggle" aria-label="Toggle navigation" onclick="toggleNavMenu()">☰ Menu</button>
+      <ul class="nav-menu">
+         <li><a href="../index.html">Home Page</a></li>
+         <li><a href="../mens.html">Men's Team</a></li>
+         <li><a href="../womens.html">Women's Team</a></li>
+         <li><a href="#athlete-sr-table">Seasonal Records</a></li>
+         <li><a href="#athlete-result-table">Race Results</a></li>
+         <li><a href="#gallery">Gallery</a></li>
+         <li><button onclick="setTheme('normal')">Normal Mode</button></li>
+         <li><button onclick="setTheme('dark')">Dark Mode</button></li>
+         <li><button onclick="setTheme('high-contrast')">High Contrast</button></li>
+      </ul>
    </nav>
    <header>
       <!--Athlete would input headshot-->
@@ -323,6 +324,11 @@
                   } else if (mode === 'high-contrast') {
                      document.body.classList.add('high-contrast-mode');
                   }
+               }
+
+               function toggleNavMenu() {
+                  const navMenu = document.querySelector('.nav-menu');
+                  navMenu.classList.toggle('active');
                }
             </script>
          </html>
