@@ -193,6 +193,7 @@ table td::before {
 
     .nav-toggle {
         display: none;
+        color: var(--text-color2)
     }
 
     .nav-menu {
@@ -256,6 +257,11 @@ nav ul li a, nav ul li button {
     padding: 10px;
     font-size: 1.5rem;
     cursor: pointer;
+}
+
+.nav-toggle:hover {
+    background-color: var(--secondary-color);
+    color: var(--bg-color);
 }
 
 .nav-menu {
