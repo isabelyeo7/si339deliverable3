@@ -208,7 +208,7 @@ table td::before {
 
     .nav-menu a, .nav-menu button {
         padding: 10px 20px;
-        color: var(--text-color);
+        color: var(--text-color2);
         background: none;
     }
 
