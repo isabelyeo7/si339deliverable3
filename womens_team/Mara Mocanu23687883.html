@@ -14,7 +14,7 @@
    <body>
    <a href = "#main">Skip to Main Content</a>
    <nav>
-      <button class="nav-toggle" aria-label="Toggle navigation" onclick="toggleNavMenu()">☰ Menu</button>
+      <button class="nav-toggle" aria-label="Toggle navigation">☰ Menu</button>
       <ul class="nav-menu">
          <li><a href="../index.html">Home Page</a></li>
          <li><a href="../mens.html">Men's Team</a></li>
@@ -22,9 +22,9 @@
          <li><a href="#athlete-sr-table">Seasonal Records</a></li>
          <li><a href="#athlete-result-table">Race Results</a></li>
          <li><a href="#gallery">Gallery</a></li>
-         <li><button onclick="setTheme('normal')">Normal Mode</button></li>
-         <li><button onclick="setTheme('dark')">Dark Mode</button></li>
-         <li><button onclick="setTheme('high-contrast')">High Contrast</button></li>
+         <li><button id="normal-mode">Normal Mode</button></li>
+         <li><button id="dark-mode">Dark Mode</button></li>
+         <li><button id="high-contrast-mode">High Contrast</button></li>
       </ul>
    </nav>
    <header>
@@ -84,7 +84,7 @@
                                     <td>23:13.9</td>
                                     <td>40 </td>
                                     <td>
-                                       <button class="collapse-btn" onclick="toggleComments(this)">Show Comments</button>
+                                       <button class="collapse-btn">Show Comments</button>
                                        <div class="comment-content"></div>
                                     </td>
                                  </tr>
@@ -96,7 +96,7 @@
                                     <td>22:15.1</td>
                                     <td>58 </td>
                                     <td>
-                                       <button class="collapse-btn" onclick="toggleComments(this)">Show Comments</button>
+                                       <button class="collapse-btn">Show Comments</button>
                                        <div class="comment-content"></div>
                                     </td>
                                  </tr>
@@ -108,7 +108,7 @@
                                     <td>22:31.2</td>
                                     <td>40 </td>
                                     <td>
-                                       <button class="collapse-btn" onclick="toggleComments(this)">Show Comments</button>
+                                       <button class="collapse-btn">Show Comments</button>
                                        <div class="comment-content">Awesome race! Let's look at where we can shave off a few more seconds.</div>
                                     </td>
                                  </tr>
@@ -120,7 +120,7 @@
                                     <td>22:13.0</td>
                                     <td>56 </td>
                                     <td>
-                                       <button class="collapse-btn" onclick="toggleComments(this)">Show Comments</button>
+                                       <button class="collapse-btn">Show Comments</button>
                                        <div class="comment-content">You were flying today! Keep up that momentum!</div>
                                     </td>
                                  </tr>
@@ -132,7 +132,7 @@
                                     <td>21:40.9PR</td>
                                     <td>144 </td>
                                     <td>
-                                       <button class="collapse-btn" onclick="toggleComments(this)">Show Comments</button>
+                                       <button class="collapse-btn">Show Comments</button>
                                        <div class="comment-content"></div>
                                     </td>
                                  </tr>
@@ -144,7 +144,7 @@
                                     <td>22:30.0</td>
                                     <td>42 </td>
                                     <td>
-                                       <button class="collapse-btn" onclick="toggleComments(this)">Show Comments</button>
+                                       <button class="collapse-btn">Show Comments</button>
                                        <div class="comment-content">Nice job! You really finished strong.</div>
                                     </td>
                                  </tr>
@@ -156,7 +156,7 @@
                                     <td>29:56.3</td>
                                     <td>97 </td>
                                     <td>
-                                       <button class="collapse-btn" onclick="toggleComments(this)">Show Comments</button>
+                                       <button class="collapse-btn">Show Comments</button>
                                        <div class="comment-content"></div>
                                     </td>
                                  </tr>
@@ -168,7 +168,7 @@
                                     <td>27:45.1</td>
                                     <td>89 </td>
                                     <td>
-                                       <button class="collapse-btn" onclick="toggleComments(this)">Show Comments</button>
+                                       <button class="collapse-btn">Show Comments</button>
                                        <div class="comment-content"></div>
                                     </td>
                                  </tr>
@@ -180,7 +180,7 @@
                                     <td>28:26.2</td>
                                     <td>125 </td>
                                     <td>
-                                       <button class="collapse-btn" onclick="toggleComments(this)">Show Comments</button>
+                                       <button class="collapse-btn">Show Comments</button>
                                        <div class="comment-content">Solid performance today! We'll fine-tune things in practice.</div>
                                     </td>
                                  </tr>
@@ -192,7 +192,7 @@
                                     <td>26:00.8</td>
                                     <td>24 </td>
                                     <td>
-                                       <button class="collapse-btn" onclick="toggleComments(this)">Show Comments</button>
+                                       <button class="collapse-btn">Show Comments</button>
                                        <div class="comment-content">Excellent job maintaining a steady pace!</div>
                                     </td>
                                  </tr>
@@ -204,7 +204,7 @@
                                     <td>24:53.7</td>
                                     <td>210 </td>
                                     <td>
-                                       <button class="collapse-btn" onclick="toggleComments(this)">Show Comments</button>
+                                       <button class="collapse-btn">Show Comments</button>
                                        <div class="comment-content">Well, you didn’t set a world record, but you definitely set a team snack record!</div>
                                     </td>
                                  </tr>
@@ -216,7 +216,7 @@
                                     <td>26:32.5</td>
                                     <td>72 </td>
                                     <td>
-                                       <button class="collapse-btn" onclick="toggleComments(this)">Show Comments</button>
+                                       <button class="collapse-btn">Show Comments</button>
                                        <div class="comment-content">Well, you didn’t set a world record, but you definitely set a team snack record!</div>
                                     </td>
                                  </tr>
@@ -228,7 +228,7 @@
                                     <td>26:15.9</td>
                                     <td>88 </td>
                                     <td>
-                                       <button class="collapse-btn" onclick="toggleComments(this)">Show Comments</button>
+                                       <button class="collapse-btn">Show Comments</button>
                                        <div class="comment-content"></div>
                                     </td>
                                  </tr>
@@ -240,7 +240,7 @@
                                     <td>23:53.6 SR</td>
                                     <td>33 </td>
                                     <td>
-                                       <button class="collapse-btn" onclick="toggleComments(this)">Show Comments</button>
+                                       <button class="collapse-btn">Show Comments</button>
                                        <div class="comment-content">Great run! If only we could bottle that energy for Monday mornings.</div>
                                     </td>
                                  </tr>
@@ -264,36 +264,8 @@
                     <!--  Follow us on Instagram <a href = "https://www.instagram.com/a2skylinexc/"><i class="fa-brands fa-instagram" aria-label="Instagram"></i>  </a> -->
 
                      </footer>
+                     <script src="../js/scripts.js"></script>
                </body>
             
-            <script>
-               function toggleComments(button) {
-                  const commentSection = button.nextElementSibling;
-                  if (commentSection.style.display === "none" || commentSection.style.display === "") {
-                     commentSection.style.display = "block";
-                    button.textContent = "Hide Comments";
-                  } else {
-                     commentSection.style.display = "none";
-                     button.textContent = "Show Comments";
-                  }
-               }
-
-               function setTheme(mode) {
-                  // Remove any existing theme classes
-                  document.body.classList.remove('dark-mode', 'high-contrast-mode');
-
-                  // Apply the chosen theme
-                  if (mode === 'dark') {
-                     document.body.classList.add('dark-mode');
-                  } else if (mode === 'high-contrast') {
-                     document.body.classList.add('high-contrast-mode');
-                  }
-               }
-
-               function toggleNavMenu() {
-                  const navMenu = document.querySelector('.nav-menu');
-                  navMenu.classList.toggle('active');
-               }
-            </script>
          </html>
    

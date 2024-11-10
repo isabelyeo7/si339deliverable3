@@ -41,16 +41,6 @@ def process_athlete_data(file_path):
       "comments": comments
    }    
 
-# def parse_time(time_str):
-#    # remove non-numeric chars
-#    if not time_str:
-#       return 0
-#    clean_time_str = re.sub(r"[^\d:.]", "", time_str)
-#    parts = clean_time_str.split(':')
-#    #if len(parts) == 2:
-#    return int(parts[0]) * 60 + float(parts[1])
-#    #return float(parts[0])
-
 def gen_athlete_page(data, outfile):
    # template 
    # Start building the HTML structure
@@ -71,7 +61,7 @@ def gen_athlete_page(data, outfile):
    <body>
    <a href = "#main">Skip to Main Content</a>
    <nav>
-      <button class="nav-toggle" aria-label="Toggle navigation" onclick="toggleNavMenu()">☰ Menu</button>
+      <button class="nav-toggle" aria-label="Toggle navigation">☰ Menu</button>
       <ul class="nav-menu">
          <li><a href="../index.html">Home Page</a></li>
          <li><a href="../mens.html">Men's Team</a></li>
@@ -79,9 +69,9 @@ def gen_athlete_page(data, outfile):
          <li><a href="#athlete-sr-table">Seasonal Records</a></li>
          <li><a href="#athlete-result-table">Race Results</a></li>
          <li><a href="#gallery">Gallery</a></li>
-         <li><button onclick="setTheme('normal')">Normal Mode</button></li>
-         <li><button onclick="setTheme('dark')">Dark Mode</button></li>
-         <li><button onclick="setTheme('high-contrast')">High Contrast</button></li>
+         <li><button id="normal-mode">Normal Mode</button></li>
+         <li><button id="dark-mode">Dark Mode</button></li>
+         <li><button id="high-contrast-mode">High Contrast</button></li>
       </ul>
    </nav>
    <header>
@@ -148,7 +138,7 @@ def gen_athlete_page(data, outfile):
                                     <td>{race["time"]}</td>
                                     <td>{race["finish"]}</td>
                                     <td>
-                                       <button class="collapse-btn" onclick="toggleComments(this)">Show Comments</button>
+                                       <button class="collapse-btn">Show Comments</button>
                                        <div class="comment-content">{race["comments"]}</div>
                                     </td>
                                  </tr>
@@ -175,37 +165,9 @@ def gen_athlete_page(data, outfile):
                     <!--  Follow us on Instagram <a href = "https://www.instagram.com/a2skylinexc/"><i class="fa-brands fa-instagram" aria-label="Instagram"></i>  </a> -->
 
                      </footer>
+                     <script src="../js/scripts.js"></script>
                </body>
             
-            <script>
-               function toggleComments(button) {
-                  const commentSection = button.nextElementSibling;
-                  if (commentSection.style.display === "none" || commentSection.style.display === "") {
-                     commentSection.style.display = "block";
-                    button.textContent = "Hide Comments";
-                  } else {
-                     commentSection.style.display = "none";
-                     button.textContent = "Show Comments";
-                  }
-               }
-
-               function setTheme(mode) {
-                  // Remove any existing theme classes
-                  document.body.classList.remove('dark-mode', 'high-contrast-mode');
-
-                  // Apply the chosen theme
-                  if (mode === 'dark') {
-                     document.body.classList.add('dark-mode');
-                  } else if (mode === 'high-contrast') {
-                     document.body.classList.add('high-contrast-mode');
-                  }
-               }
-
-               function toggleNavMenu() {
-                  const navMenu = document.querySelector('.nav-menu');
-                  navMenu.classList.toggle('active');
-               }
-            </script>
          </html>
    '''
 
@@ -265,3 +227,35 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+# embedded js
+# <script>
+#                // function to toggle comments
+#                function toggleComments(button) {
+#                   const commentSection = button.nextElementSibling;
+#                   if (commentSection.style.display === "none" || commentSection.style.display === "") {
+#                      commentSection.style.display = "block";
+#                     button.textContent = "Hide Comments";
+#                   } else {
+#                      commentSection.style.display = "none";
+#                      button.textContent = "Show Comments";
+#                   }
+#                }
+
+#                function setTheme(mode) {
+#                   // Remove any existing theme classes
+#                   document.body.classList.remove('dark-mode', 'high-contrast-mode');
+
+#                   // Apply the chosen theme
+#                   if (mode === 'dark') {
+#                      document.body.classList.add('dark-mode');
+#                   } else if (mode === 'high-contrast') {
+#                      document.body.classList.add('high-contrast-mode');
+#                   }
+#                }
+
+#                function toggleNavMenu() {
+#                   const navMenu = document.querySelector('.nav-menu');
+#                   navMenu.classList.toggle('active');
+#                }
+#             </script>

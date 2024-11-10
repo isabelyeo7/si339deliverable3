@@ -14,7 +14,7 @@
    <body>
    <a href = "#main">Skip to Main Content</a>
    <nav>
-      <button class="nav-toggle" aria-label="Toggle navigation" onclick="toggleNavMenu()">☰ Menu</button>
+      <button class="nav-toggle" aria-label="Toggle navigation">☰ Menu</button>
       <ul class="nav-menu">
          <li><a href="../index.html">Home Page</a></li>
          <li><a href="../mens.html">Men's Team</a></li>
@@ -22,9 +22,9 @@
          <li><a href="#athlete-sr-table">Seasonal Records</a></li>
          <li><a href="#athlete-result-table">Race Results</a></li>
          <li><a href="#gallery">Gallery</a></li>
-         <li><button onclick="setTheme('normal')">Normal Mode</button></li>
-         <li><button onclick="setTheme('dark')">Dark Mode</button></li>
-         <li><button onclick="setTheme('high-contrast')">High Contrast</button></li>
+         <li><button id="normal-mode">Normal Mode</button></li>
+         <li><button id="dark-mode">Dark Mode</button></li>
+         <li><button id="high-contrast-mode">High Contrast</button></li>
       </ul>
    </nav>
    <header>
@@ -94,7 +94,7 @@
                                     <td>18:23.7</td>
                                     <td>47 </td>
                                     <td>
-                                       <button class="collapse-btn" onclick="toggleComments(this)">Show Comments</button>
+                                       <button class="collapse-btn">Show Comments</button>
                                        <div class="comment-content">Fantastic run! Let's keep building on this for the next race.</div>
                                     </td>
                                  </tr>
@@ -106,7 +106,7 @@
                                     <td>17:14.9</td>
                                     <td>29 </td>
                                     <td>
-                                       <button class="collapse-btn" onclick="toggleComments(this)">Show Comments</button>
+                                       <button class="collapse-btn">Show Comments</button>
                                        <div class="comment-content">Your pacing was solid today. Let's focus on maintaining it throughout the race.</div>
                                     </td>
                                  </tr>
@@ -118,7 +118,7 @@
                                     <td>18:12.2</td>
                                     <td>40 </td>
                                     <td>
-                                       <button class="collapse-btn" onclick="toggleComments(this)">Show Comments</button>
+                                       <button class="collapse-btn">Show Comments</button>
                                        <div class="comment-content"></div>
                                     </td>
                                  </tr>
@@ -130,7 +130,7 @@
                                     <td>17:43.1</td>
                                     <td>61 </td>
                                     <td>
-                                       <button class="collapse-btn" onclick="toggleComments(this)">Show Comments</button>
+                                       <button class="collapse-btn">Show Comments</button>
                                        <div class="comment-content"></div>
                                     </td>
                                  </tr>
@@ -142,7 +142,7 @@
                                     <td>17:14.7PR</td>
                                     <td>117 </td>
                                     <td>
-                                       <button class="collapse-btn" onclick="toggleComments(this)">Show Comments</button>
+                                       <button class="collapse-btn">Show Comments</button>
                                        <div class="comment-content"></div>
                                     </td>
                                  </tr>
@@ -154,7 +154,7 @@
                                     <td>17:46.6</td>
                                     <td>24 </td>
                                     <td>
-                                       <button class="collapse-btn" onclick="toggleComments(this)">Show Comments</button>
+                                       <button class="collapse-btn">Show Comments</button>
                                        <div class="comment-content"></div>
                                     </td>
                                  </tr>
@@ -166,7 +166,7 @@
                                     <td>18:09.9</td>
                                     <td>69 </td>
                                     <td>
-                                       <button class="collapse-btn" onclick="toggleComments(this)">Show Comments</button>
+                                       <button class="collapse-btn">Show Comments</button>
                                        <div class="comment-content"></div>
                                     </td>
                                  </tr>
@@ -178,7 +178,7 @@
                                     <td>18:26.9</td>
                                     <td>35 </td>
                                     <td>
-                                       <button class="collapse-btn" onclick="toggleComments(this)">Show Comments</button>
+                                       <button class="collapse-btn">Show Comments</button>
                                        <div class="comment-content">Great effort out there! Keep pushing yourself at the next meet.</div>
                                     </td>
                                  </tr>
@@ -190,7 +190,7 @@
                                     <td>18:05.2</td>
                                     <td>49 </td>
                                     <td>
-                                       <button class="collapse-btn" onclick="toggleComments(this)">Show Comments</button>
+                                       <button class="collapse-btn">Show Comments</button>
                                        <div class="comment-content">Nice job! You really finished strong.</div>
                                     </td>
                                  </tr>
@@ -202,7 +202,7 @@
                                     <td>18:00.5</td>
                                     <td>62 </td>
                                     <td>
-                                       <button class="collapse-btn" onclick="toggleComments(this)">Show Comments</button>
+                                       <button class="collapse-btn">Show Comments</button>
                                        <div class="comment-content"></div>
                                     </td>
                                  </tr>
@@ -214,7 +214,7 @@
                                     <td>18:33.7</td>
                                     <td>102 </td>
                                     <td>
-                                       <button class="collapse-btn" onclick="toggleComments(this)">Show Comments</button>
+                                       <button class="collapse-btn">Show Comments</button>
                                        <div class="comment-content">That was a great race! Next time, try running *on* the path though.</div>
                                     </td>
                                  </tr>
@@ -226,7 +226,7 @@
                                     <td>17:46.9</td>
                                     <td>140 </td>
                                     <td>
-                                       <button class="collapse-btn" onclick="toggleComments(this)">Show Comments</button>
+                                       <button class="collapse-btn">Show Comments</button>
                                        <div class="comment-content">You fought hard all the way through, great resilience!</div>
                                     </td>
                                  </tr>
@@ -238,7 +238,7 @@
                                     <td>17:43.7</td>
                                     <td>53 </td>
                                     <td>
-                                       <button class="collapse-btn" onclick="toggleComments(this)">Show Comments</button>
+                                       <button class="collapse-btn">Show Comments</button>
                                        <div class="comment-content">Your speed was impressive, but next time, try not to leave the spectators in the dust... literally!</div>
                                     </td>
                                  </tr>
@@ -250,7 +250,7 @@
                                     <td>17:52.1</td>
                                     <td>192 </td>
                                     <td>
-                                       <button class="collapse-btn" onclick="toggleComments(this)">Show Comments</button>
+                                       <button class="collapse-btn">Show Comments</button>
                                        <div class="comment-content">Super strong start! We'll work on keeping that energy the whole race.</div>
                                     </td>
                                  </tr>
@@ -262,7 +262,7 @@
                                     <td>19:08.1</td>
                                     <td>97 </td>
                                     <td>
-                                       <button class="collapse-btn" onclick="toggleComments(this)">Show Comments</button>
+                                       <button class="collapse-btn">Show Comments</button>
                                        <div class="comment-content">Great run! If only we could bottle that energy for Monday mornings.</div>
                                     </td>
                                  </tr>
@@ -274,7 +274,7 @@
                                     <td>18:27.9</td>
                                     <td>45 </td>
                                     <td>
-                                       <button class="collapse-btn" onclick="toggleComments(this)">Show Comments</button>
+                                       <button class="collapse-btn">Show Comments</button>
                                        <div class="comment-content">I think you might've outrun the course map! Keep it up, and we’ll need GPS tracking.</div>
                                     </td>
                                  </tr>
@@ -286,7 +286,7 @@
                                     <td>17:55.4</td>
                                     <td>44 </td>
                                     <td>
-                                       <button class="collapse-btn" onclick="toggleComments(this)">Show Comments</button>
+                                       <button class="collapse-btn">Show Comments</button>
                                        <div class="comment-content">I think you might've outrun the course map! Keep it up, and we’ll need GPS tracking.</div>
                                     </td>
                                  </tr>
@@ -298,7 +298,7 @@
                                     <td>17:42.9 SR</td>
                                     <td>245 </td>
                                     <td>
-                                       <button class="collapse-btn" onclick="toggleComments(this)">Show Comments</button>
+                                       <button class="collapse-btn">Show Comments</button>
                                        <div class="comment-content"></div>
                                     </td>
                                  </tr>
@@ -310,7 +310,7 @@
                                     <td>22:10.8</td>
                                     <td>135 </td>
                                     <td>
-                                       <button class="collapse-btn" onclick="toggleComments(this)">Show Comments</button>
+                                       <button class="collapse-btn">Show Comments</button>
                                        <div class="comment-content"></div>
                                     </td>
                                  </tr>
@@ -322,7 +322,7 @@
                                     <td>21:07.1</td>
                                     <td>159 </td>
                                     <td>
-                                       <button class="collapse-btn" onclick="toggleComments(this)">Show Comments</button>
+                                       <button class="collapse-btn">Show Comments</button>
                                        <div class="comment-content">Nice work! By the way, you know this is a race, not a scenic tour, right?</div>
                                     </td>
                                  </tr>
@@ -334,7 +334,7 @@
                                     <td>20:32.1</td>
                                     <td>55 </td>
                                     <td>
-                                       <button class="collapse-btn" onclick="toggleComments(this)">Show Comments</button>
+                                       <button class="collapse-btn">Show Comments</button>
                                        <div class="comment-content">I blinked and missed the first half of your race! That was quick!</div>
                                     </td>
                                  </tr>
@@ -346,7 +346,7 @@
                                     <td>20:50.0</td>
                                     <td>80 </td>
                                     <td>
-                                       <button class="collapse-btn" onclick="toggleComments(this)">Show Comments</button>
+                                       <button class="collapse-btn">Show Comments</button>
                                        <div class="comment-content">Great run! If only we could bottle that energy for Monday mornings.</div>
                                     </td>
                                  </tr>
@@ -358,7 +358,7 @@
                                     <td>20:10.4</td>
                                     <td>159 </td>
                                     <td>
-                                       <button class="collapse-btn" onclick="toggleComments(this)">Show Comments</button>
+                                       <button class="collapse-btn">Show Comments</button>
                                        <div class="comment-content"></div>
                                     </td>
                                  </tr>
@@ -370,7 +370,7 @@
                                     <td>19:48.2</td>
                                     <td>44 </td>
                                     <td>
-                                       <button class="collapse-btn" onclick="toggleComments(this)">Show Comments</button>
+                                       <button class="collapse-btn">Show Comments</button>
                                        <div class="comment-content"></div>
                                     </td>
                                  </tr>
@@ -382,7 +382,7 @@
                                     <td>19:46.0</td>
                                     <td>179 </td>
                                     <td>
-                                       <button class="collapse-btn" onclick="toggleComments(this)">Show Comments</button>
+                                       <button class="collapse-btn">Show Comments</button>
                                        <div class="comment-content">Awesome race! Let's look at where we can shave off a few more seconds.</div>
                                     </td>
                                  </tr>
@@ -394,7 +394,7 @@
                                     <td>19:09.2 SR</td>
                                     <td>126 </td>
                                     <td>
-                                       <button class="collapse-btn" onclick="toggleComments(this)">Show Comments</button>
+                                       <button class="collapse-btn">Show Comments</button>
                                        <div class="comment-content">That was a great race! Next time, try running *on* the path though.</div>
                                     </td>
                                  </tr>
@@ -406,7 +406,7 @@
                                     <td>19:18.7</td>
                                     <td>96 </td>
                                     <td>
-                                       <button class="collapse-btn" onclick="toggleComments(this)">Show Comments</button>
+                                       <button class="collapse-btn">Show Comments</button>
                                        <div class="comment-content"></div>
                                     </td>
                                  </tr>
@@ -418,7 +418,7 @@
                                     <td>19:13.2</td>
                                     <td>43 </td>
                                     <td>
-                                       <button class="collapse-btn" onclick="toggleComments(this)">Show Comments</button>
+                                       <button class="collapse-btn">Show Comments</button>
                                        <div class="comment-content">Well, you didn’t set a world record, but you definitely set a team snack record!</div>
                                     </td>
                                  </tr>
@@ -430,7 +430,7 @@
                                     <td>27:03.7</td>
                                     <td>189 </td>
                                     <td>
-                                       <button class="collapse-btn" onclick="toggleComments(this)">Show Comments</button>
+                                       <button class="collapse-btn">Show Comments</button>
                                        <div class="comment-content"></div>
                                     </td>
                                  </tr>
@@ -442,7 +442,7 @@
                                     <td>24:30.2</td>
                                     <td>209 </td>
                                     <td>
-                                       <button class="collapse-btn" onclick="toggleComments(this)">Show Comments</button>
+                                       <button class="collapse-btn">Show Comments</button>
                                        <div class="comment-content">Well, you didn’t set a world record, but you definitely set a team snack record!</div>
                                     </td>
                                  </tr>
@@ -454,7 +454,7 @@
                                     <td>24:41.5</td>
                                     <td>142 </td>
                                     <td>
-                                       <button class="collapse-btn" onclick="toggleComments(this)">Show Comments</button>
+                                       <button class="collapse-btn">Show Comments</button>
                                        <div class="comment-content">Solid performance today! We'll fine-tune things in practice.</div>
                                     </td>
                                  </tr>
@@ -466,7 +466,7 @@
                                     <td>25:24.8</td>
                                     <td>489 </td>
                                     <td>
-                                       <button class="collapse-btn" onclick="toggleComments(this)">Show Comments</button>
+                                       <button class="collapse-btn">Show Comments</button>
                                        <div class="comment-content">Your pacing was solid today. Let's focus on maintaining it throughout the race.</div>
                                     </td>
                                  </tr>
@@ -478,7 +478,7 @@
                                     <td>23:51.1</td>
                                     <td>234 </td>
                                     <td>
-                                       <button class="collapse-btn" onclick="toggleComments(this)">Show Comments</button>
+                                       <button class="collapse-btn">Show Comments</button>
                                        <div class="comment-content">Way to stay focused during the race! Keep that mindset for the next one.</div>
                                     </td>
                                  </tr>
@@ -490,7 +490,7 @@
                                     <td>23:37.6</td>
                                     <td>203 </td>
                                     <td>
-                                       <button class="collapse-btn" onclick="toggleComments(this)">Show Comments</button>
+                                       <button class="collapse-btn">Show Comments</button>
                                        <div class="comment-content">You really pushed hard in that final mile, awesome finish!</div>
                                     </td>
                                  </tr>
@@ -502,7 +502,7 @@
                                     <td>23:13.4</td>
                                     <td>101 </td>
                                     <td>
-                                       <button class="collapse-btn" onclick="toggleComments(this)">Show Comments</button>
+                                       <button class="collapse-btn">Show Comments</button>
                                        <div class="comment-content">You fought hard all the way through, great resilience!</div>
                                     </td>
                                  </tr>
@@ -514,7 +514,7 @@
                                     <td>23:00.8 SR</td>
                                     <td>109 </td>
                                     <td>
-                                       <button class="collapse-btn" onclick="toggleComments(this)">Show Comments</button>
+                                       <button class="collapse-btn">Show Comments</button>
                                        <div class="comment-content">Well, you didn’t set a world record, but you definitely set a team snack record!</div>
                                     </td>
                                  </tr>
@@ -538,36 +538,8 @@
                     <!--  Follow us on Instagram <a href = "https://www.instagram.com/a2skylinexc/"><i class="fa-brands fa-instagram" aria-label="Instagram"></i>  </a> -->
 
                      </footer>
+                     <script src="../js/scripts.js"></script>
                </body>
             
-            <script>
-               function toggleComments(button) {
-                  const commentSection = button.nextElementSibling;
-                  if (commentSection.style.display === "none" || commentSection.style.display === "") {
-                     commentSection.style.display = "block";
-                    button.textContent = "Hide Comments";
-                  } else {
-                     commentSection.style.display = "none";
-                     button.textContent = "Show Comments";
-                  }
-               }
-
-               function setTheme(mode) {
-                  // Remove any existing theme classes
-                  document.body.classList.remove('dark-mode', 'high-contrast-mode');
-
-                  // Apply the chosen theme
-                  if (mode === 'dark') {
-                     document.body.classList.add('dark-mode');
-                  } else if (mode === 'high-contrast') {
-                     document.body.classList.add('high-contrast-mode');
-                  }
-               }
-
-               function toggleNavMenu() {
-                  const navMenu = document.querySelector('.nav-menu');
-                  navMenu.classList.toggle('active');
-               }
-            </script>
          </html>
    
