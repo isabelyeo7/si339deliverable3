@@ -515,6 +515,47 @@ button:hover {
     html {
         scroll-behavior: auto;
     }
+    /* Disable animations */
+    * {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important; /* Override smooth scrolling */
+    }
+
+    /* Specific animations to reduce */
+    .lightbox img {
+        box-shadow: none !important; /* Remove animated shadow */
+    }
+
+    .collapse-btn {
+        transition: none !important; /* Remove button hover transition */
+    }
+
+    /* Progress bar */
+    .progress-bar {
+        animation: none !important; /* Disable progress bar animation */
+    }
+
+    a {
+        transition: none !important;
+    }
+
+    button {
+        transition: none;
+    }
+    .comment-content {
+        transition: none;
+    }
+    .index-nav a {
+        transition: none;
+    }
+    .nav-menu.active {
+        animation: none;
+    }
+    .nav-menu a, .nav-menu button {
+        transition: none;
+    }
+
 }
 
 /* lightbox */
