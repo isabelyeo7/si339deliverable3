@@ -2,6 +2,10 @@
 document.addEventListener('DOMContentLoaded', () => {
     // function to toggle navigation menu
     console.log('DOM fully loaded and parsed')
+
+    const preloadImage = new Image();
+    preloadImage.src = '../images/default_image.jpg';
+    
     const navToggle = document.querySelector('.nav-toggle');
     const navMenu = document.querySelector('.nav-menu');
 
