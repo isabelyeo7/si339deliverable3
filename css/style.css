@@ -406,11 +406,12 @@ html {
 .collapse-btn {
     background: none;
     border: none;
-    color: var(--text-color);
+    color: var(--text-color2);
     cursor: pointer;
     font-size: 0.9rem;
     margin: 5px 0;
     text-decoration: underline;
+    background-color: var(--primary-color);
 }
 
 .comment-content {
