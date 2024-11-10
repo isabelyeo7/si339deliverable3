@@ -234,7 +234,7 @@ nav ul li {
 
 nav ul li a:hover, nav ul li button:hover{
     background-color: var(--secondary-color);
-    color: var(--bg-color);
+    color: var(--text-color2);
     border-radius: 5px;
 }
 
@@ -535,3 +535,35 @@ button:hover {
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
+/* Styling specific to the nav bar on the index.html page */
+.index-nav {
+    background-color: var(--tertiary-color); /* Use a different background color */
+    padding: 15px;
+    border-radius: 8px; /* Optional: rounded corners */
+}
+
+.index-nav ul {
+    background-color: transparent; /* Make the ul background transparent if needed */
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    display: flex;
+    gap: 20px; /* Space between items */
+}
+
+.index-nav li {
+    display: inline-block;
+}
+
+.index-nav a {
+    color: var(--primary-color); /* Different text color */
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px; /* Rounded corners for better aesthetics */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.index-nav a:hover {
+    background-color: var(--fourth-color); /* Different hover effect */
+    color: var(--text-color); /* Adjust for contrast */
+}
